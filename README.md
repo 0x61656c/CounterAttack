@@ -60,12 +60,12 @@ Generates usernames and passwords for ints in range(0, limit) using previously d
 Ex: (uname = aalebel33, pwd = carbon14)
 
 Notes:
-  -Input type: int
-  -Return type: Array of tuples
+  - Input type: int
+  - Return type: Array of tuples
 
 Dependencies: 
-  -function: passGenerator
-  -function: unameGenerator
+  - function: passGenerator
+  - function: unameGenerator
 
 **submitData(payload = ("username","password"), url = "")**:
 
@@ -87,14 +87,14 @@ Dependencies:
   Currently limited by the size of the data input for usernames, which is 2283. 
   However, this function can be run multiple times and yield consistently uniqueresults. P(duplicate entry) < 2e-10)
   
-  Notes:
-   Input types:
+  Input types:
      - url: string 
      - limit: int
-   No output
+  
+  No output
     
   This function must be reconfigured for each use--variable names and urls must be consistent with defending site protocols.
     
   Dependencies: 
-    -Functions: submitData
+    - Functions: submitData
 
