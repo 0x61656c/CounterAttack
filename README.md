@@ -7,100 +7,95 @@ Counterattack procedurally generates usernames and passwords based on data conta
 
 # Functions
 
-randomizeCase(string):
-  Randomizes the case of a string input. Used to prevent automated filtering of counterattack information.
-  Example: input password12 will convert to any of the following examples:
+**randomizeCase(string)**:
+Randomizes the case of a string input. Used to prevent automated filtering of counterattack information.
+Example: input password12 will convert to any of the following examples: pAssword12, PASsword12, PasSSWORD12, passwoRD12, etc.
 
-  pAssword12, PASsword12, PasSSWORD12, passwoRD12, etc.
-    
-  Notes:
-    Input type: string
-    Return type: string
-		
-  Dependencies: 
-    Libraries: random, string
+Notes:
+- Input type: string
+- Return type: string
+	
+Dependencies: 
+- Libraries: random, string
 
-unameGenerator(lim):
-  Generates usernames for ints in range [0, limit]
-  each element in the output username array is of the following form
+**unameGenerator(lim)**:
+Generates usernames for ints in range [0, limit]. Each element in the output username array is of the following form
 
-  [uname_base][int extension][generic provider]
+[uname_base][int extension][generic provider]
 
-  Ex: aaron23@gmail.com, connor56@yahoo.com, etc.
+Ex: aaron23@gmail.com, connor56@yahoo.com, etc.
 
-  Notes: 
-    Input type: int
-    Return type: array 
+Notes: 
+ - Input type: int
+ - Return type: array 
 		  
-  Dependencies: 
-    Data: names.json
-    Library: random
+Dependencies: 
+ - Data: names.json
+ - Library: random
       
-passGenerator(lim):
+**passGenerator(lim)**:
 
-  Generates passwords for ints in range [0,limit]
-  each element in the output password array is of the following form:
+Generates passwords for ints in range [0,limit]. Each element in the output password array is of the following form:
 
-  [pwd_base][pwd_extension]
+[pwd_base][pwd_extension]
 
-  Ex: carbon14, oxygen8, etc.
+Ex: carbon14, oxygen8, etc.
 
-  Each password is also passed through the randomized capitalization function, 
-  so inputs are sometimes convoluted to 
+Each password is also passed through the randomized capitalization function, so inputs are sometimes convoluted to 
 
-  Ex: CarbON14, OXYGen8, etc.
+Ex: CarbON14, OXYGen8, etc.
 
-  Notes:
-    Input type: int
-    Return type: array
+Notes:
+- Input type: int
+- Return type: array
     
-  Dependencies: 
-    data: passwords.json
-    libaray: random
+Dependencies: 
+- data: passwords.json
+- libaray: random
 
-sessionGenerator(lim):
+**sessionGenerator(lim)**:
 
-  Generates usernames and passwords for ints in range(0, limit) using previously defined functions.
+Generates usernames and passwords for ints in range(0, limit) using previously defined functions.
 
-  Ex: (uname = aalebel33, pwd = carbon14)
+Ex: (uname = aalebel33, pwd = carbon14)
 
-  Notes:
-    Input type: int
-    Return type: Array of tuples
+Notes:
+  -Input type: int
+  -Return type: Array of tuples
 
-  Dependencies: 
-    function: passGenerator
-    function: unameGenerator
+Dependencies: 
+  -function: passGenerator
+  -function: unameGenerator
 
-submitData(payload = ("username","password"), url = ""):
+**submitData(payload = ("username","password"), url = "")**:
 
-  completes a single form submission requiring username and password input.
-  Does not allow redirects to increase speed of form submission.
+Completes a single form submission requiring username and password input. Does not allow redirects to increase speed of form submission.
 
-  Notes: 
-   Input types: 
-      payload = tuple
-      url = string
+Notes: 
+  *Input types: 
+   - payload = tuple
+   - url = string
    
-   Return types:
-      None
+  *Return types:
+      -None
   
   Dependencies:
-    Library: Requests
+    - Library: Requests
 
-counterAttack(url = "", limit = 0):
+**counterAttack(url = "", limit = 0)**:
 
   Attack script. Generates a list of uname and pwd tuples and passes them through the submit data function.
   Currently limited by the size of the data input for usernames, which is 2283. 
   However, this function can be run multiple times and yield consistently uniqueresults. P(duplicate entry) < 2e-10)
   
   Notes:
-   Input types:
-     url: string, limit: int
-   No output
+   *Input types:
+     - url: string 
+     - limit: int
+   *No output
     
   This function must be reconfigured for each use--variable names and urls must be consistent with defending site protocols.
     
   Dependencies: 
-    Functions: submitData
+    -Functions: submitData
 
