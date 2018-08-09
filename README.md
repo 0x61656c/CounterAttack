@@ -71,16 +71,15 @@ Dependencies:
 
 Completes a single form submission requiring username and password input. Does not allow redirects to increase speed of form submission.
 
-Notes: 
-  *Input types: 
-   - payload = tuple
-   - url = string
+Input types: 
+  - payload = tuple
+  - url = string
    
-  *Return types:
-      -None
+Return types:
+  - None
   
-  Dependencies:
-    - Library: Requests
+Dependencies:
+  - Library: Requests
 
 **counterAttack(url = "", limit = 0)**:
 
@@ -89,10 +88,10 @@ Notes:
   However, this function can be run multiple times and yield consistently uniqueresults. P(duplicate entry) < 2e-10)
   
   Notes:
-   *Input types:
+   Input types:
      - url: string 
      - limit: int
-   *No output
+   No output
     
   This function must be reconfigured for each use--variable names and urls must be consistent with defending site protocols.
     
